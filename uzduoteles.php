@@ -70,3 +70,18 @@ $pilnassarasas= array_merge($padalinys1,$padalinys2);
 echo '<pre>';
 print_r(array_chunk($pilnassarasas, 3));
 echo '</pre>';
+echo '<pre>';
+$arrayColumn = array_column($pilnassarasas,'vardas',
+    'pavarde');
+print_r($arrayColumn);
+echo'</pre>';
+
+if(array_key_exists( 'Jonaitis',$arrayColumn))
+
+echo $arrayColumn['Jonaitis'];
+
+else
+echo 'toks vardas neegzistuoja';
+
+
+

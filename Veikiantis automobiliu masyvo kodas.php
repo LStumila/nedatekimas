@@ -71,7 +71,7 @@ $prekes1 = ['suris', 'desra', 'suris','duona','3', 3 ];
 print_r(array_unique($prekes1));
 print_r(array_values($automobiliai[0]));
 print_r(count($prekes1));
-var_dump(in_array('Audi',$automobiliai[0]));
+var_dump(in_array('BMW',$automobiliai[0]));
 $vaisiai =['obolys', 'kriause','vynuoge','braske'];
 sort($vaisiai);
 print_r($vaisiai);
