@@ -63,5 +63,18 @@ array_push($prekes, ['suris', 'sausainiai']);
 print_r($prekes);
 
 print_r(array_search('suris',$prekes));
+array_shift($prekes);
+print_r($prekes);
+$prekiuKainos = [5,4.3, 3,6,8,3];
+print_r(array_sum($prekiuKainos));
+$prekes1 = ['suris', 'desra', 'suris','duona','3', 3 ];
+print_r(array_unique($prekes1));
+print_r(array_values($automobiliai[0]));
+print_r(count($prekes1));
+var_dump(in_array('Audi',$automobiliai[0]));
+$vaisiai =['obolys', 'kriause','vynuoge','braske'];
+sort($vaisiai);
+print_r($vaisiai);
+print_r($automobiliai[1]['model']);
 
 echo '</pre>';
