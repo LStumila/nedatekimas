@@ -20,16 +20,16 @@ $masyvas2 = [
 [
     'marke' => 'audi',
     'model' => 'bulka',
-    'kubatura'=> '1995'
+    'kubatura' => '1995'
     'metai' => '2016',
 
 ],
 
 [
-    'marke'=> 'bmw',
+    'marke' => 'bmw',
     'model'=> 'slyva' ,
 'kubatura' => 3 'd',
-'metai'=> 1998,
+'metai' => 1998,
 ],
     ];
 // kazkodel neveikia tie automobiliai, kad juos kur galas. nu kur tau veiks kai audi ir bmw

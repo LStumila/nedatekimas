@@ -1,0 +1,67 @@
+<?php
+
+$prekes = [
+    'Sviestas',
+    'duona',
+    'desra',
+    'desreles',
+    'suris',
+    'pienas',
+];
+
+$automobiliai = [
+    [
+        'id' => 23,
+        'marke' => 'Audi',
+        'model' => 'A6',
+        'kubatura' => 1995,
+        'metai' => 2016,
+    ],
+    [
+        'id' => 54,
+        'marke' => 'BMW',
+        'model' => 'M3',
+        'kubatura' => 2995,
+        'metai' => 2018,
+    ],
+];
+
+$automobiliai1 = [
+    [
+        'id' => 24,
+        'marke' => 'Renault',
+        'model' => 'Espace',
+        'kubatura' => 1598,
+        'metai' => 2013,
+    ],
+    [
+        'id' => 55,
+        'marke' => 'Peugeot',
+        'model' => '206',
+        'kubatura' => 1300,
+        'metai' => 2000,
+    ],
+];
+
+echo '<pre>';
+print_r($prekes);
+print_r(array_chunk($prekes, 2));
+$arrayColumn = array_column(
+    $automobiliai,
+    'model',
+    'marke'
+);
+print_r($arrayColumn);
+var_dump(array_key_exists(6, $prekes));
+print_r(array_keys($arrayColumn));
+print_r(array_merge($automobiliai, $automobiliai1));
+array_pop($prekes);
+print_r($prekes);
+array_push($prekes, 'suris');
+array_push($prekes, 'sausainiai');
+array_push($prekes, ['suris', 'sausainiai']);
+print_r($prekes);
+
+print_r(array_search('suris',$prekes));
+
+echo '</pre>';
