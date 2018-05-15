@@ -14,7 +14,7 @@ if (!$db) {
     die( 'Cia kazkas negerai...' . mysqli_connect_error());
 }
 else
-    echo 'FATAL ERROR: juokauju, viskas veikia juk...';
+    echo 'FATAL ERROR: juokauju, viskas veikia juk...' ;
 //sukurti lentele duoomenu bazeje
 $sql= "CREATE TABLE IF NOT EXISTS `users`(
 `id` INT(11) UNSIGNED NOT NULL  AUTO_INCREMENT, 
@@ -23,8 +23,20 @@ $sql= "CREATE TABLE IF NOT EXISTS `users`(
 `password` VARCHAR (32) NOT NULL ,
 PRIMARY KEY (`id`)
 )ENGINE='InnoDB'CHARACTER SET utf8";
+//dar vienos lenteles kurimas index reikalingas kad greitesne paieska butu
+$sqlAdress = "CREATE TABLE IF NOT EXISTS `user_adresses`(
+`id` INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
+`user_id`  INT(11) NOT NULL ,
+`adress` TEXT NOT NULL ,
+PRIMARY KEY (`id`),
+INDEX (`user_id`)
+) 
+ENGINE='InnoDB' CHARACTER SET utf8 ";
+
+
 
 mysqli_query($db,$sql);
+mysqli_query($db,$sqlAdress);
 
 //uzpildyti duomenis duomenu bazeje, sukurtoje lenteleje
 
@@ -48,8 +60,7 @@ mysqli_query($db,$sql2);
 //WHERE `id`= reikiamas id
 
 $sql3 = " SELECT *
-FROM `users`
-";
+FROM `users` ";
 
 $users =mysqli_query($db,$sql3);
 
@@ -60,9 +71,21 @@ foreach (mysqli_fetch_all($users, MYSQLI_ASSOC) as $user)
     echo '</pre>';
 
 };
+// informacijos trynimas is lenteles
+
+$sql4 = "DELETE FROM `user` WHERE `id`=13";
+//mysqli_query($db,$sql4);  nutrinti bruksnelius
 
 
+/// trina visa lentele
 
+$sql5= "DROP TABLE `users`";
+//mysqli_query($db,$sql5); nutrinti brukssnelius
 
-
-
+// failu prijungimas tarp lenteliu esanciu duomenu bazeje JOIN `user_addresses`ON `user`. `id`= `user_addresses`. `user_id`
+//cia nurodyta tarp kuriu elementu prisijungimnas ivyks.
+//skilytje WHERE butinai nusirodyti kurioje lenteleje turi vykt veiksmas.
+$sql6= " SELECT users.*, user_adresses.address
+FROM `users`
+LEFT JOIN `user_addresses`ON `user`. `id`= `user_addresses`. `user_id`
+WHERE `users`.`id`=1 ";
