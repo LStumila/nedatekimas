@@ -1,0 +1,20 @@
+{
+
+    "require":{
+        "php": "^5.6 || ^7.0"
+    },
+
+    "name": "lukass/my_project",
+    "description": "kazkas parasyta",
+    "type": "project",
+    "require": {
+        "php": "^7.2"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Shop\\": "src/",
+            "Config\\":"config/"
+        }
+}
+}
